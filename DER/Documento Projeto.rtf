@@ -1,0 +1,10 @@
+GRUPO: Kevin, Daniel, Gustavo, Panda, Julia, Victor, Lucas
+
+Fizemos a primeira tabela: Categoria.
+Nela colocamos o 'id' como chave primária; 'nome_categoria' (varchar) para determinar os nomes das categorias; 'imagem_categoria' para inserir as fotos que vão ilustrar cada categoria; 'descricao_categoria' para descrever cada categoria.
+
+Segunda tabela: Produto.
+'id_produto' como chave primaria; 'nome' para determinar o nome de cada produto; 'preco' para determinar o preço de cada produto; 'descricao' para descrever cada produto; 'imagens' para ilustrar cada produto; 'qt_produto' para mostrar em numeros inteiros as quantidades de cada produto; 'produto_ativo' como boolean para dizer se o produto continua disponivel ou não; 'fk_id' uma chave estrangeira ligada a 'id' de categoria para que possamos determinar que categoria pertence cada produto; 'fk_usuario' é uma chave estrangeira ligada a usuario para determinar os produtos que cada usuario contribuiu.
+
+Terceira tabela: usuario.
+'id_usuario' como chave primaria; 'nome' nome completo do usuario; 'email' email do usuario para completar o login que sera necessario no site; 'senha' para completar o login.
