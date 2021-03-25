@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.URL;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -33,7 +35,7 @@ public class Produto {
 	private String descricao;
 	
 	@NotNull
-	@Size(min = 5, max= 300)
+	@URL
 	private String imagens;
 	
 	@NotNull
