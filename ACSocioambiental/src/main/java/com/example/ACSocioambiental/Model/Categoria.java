@@ -22,25 +22,55 @@ public class Categoria {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_categoria;
+	private long id;
 	
 	@NotNull
-	@Size(min = 5, max =50)
-	private String nome_categoria;
+	@Size(max =50)
+	private String nomeCategoria;
 	
 	@URL
 	@NotNull
-	private String imgem_categoria;
+	private String imagemCategoria;
 	
-	@NotNull
-	@Size(min=5 , max= 200)
-	private String descricao_categoria;
+	@Size(max= 10000)
+	private String descricaoCategoria;
 	
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("categoria") // se der erro foi aqui
+	@JsonIgnoreProperties("categoria") 
 	private List<Produto> produto;
-	
-	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNomeCategoria() {
+		return nomeCategoria;
+	}
+
+	public void setNomeCategoria(String nomeCategoria) {
+		this.nomeCategoria = nomeCategoria;
+	}
+
+	public String getImagemCategoria() {
+		return imagemCategoria;
+	}
+
+	public void setImagemCategoria(String imagemCategoria) {
+		this.imagemCategoria = imagemCategoria;
+	}
+
+	public String getDescricaoCategoria() {
+		return descricaoCategoria;
+	}
+
+	public void setDescricaoCategoria(String descricaoCategoria) {
+		this.descricaoCategoria = descricaoCategoria;
+	}
+
 	public List<Produto> getProduto() {
 		return produto;
 	}
@@ -49,39 +79,8 @@ public class Categoria {
 		this.produto = produto;
 	}
 
-	public long getId_categoria() {
-		return id_categoria;
-	}
-
-	public void setId_categoria(long id_categoria) {
-		this.id_categoria = id_categoria;
-	}
-
-	public String getNome_categoria() {
-		return nome_categoria;
-	}
-
-	public void setNome_categoria(String nome_categoria) {
-		this.nome_categoria = nome_categoria;
-	}
-
-	public String getImgem_categoria() {
-		return imgem_categoria;
-	}
-
-	public void setImgem_categoria(String imgem_categoria) {
-		this.imgem_categoria = imgem_categoria;
-	}
-
-	public String getDescricao_categoria() {
-		return descricao_categoria;
-	}
-
-	public void setDescricao_categoria(String descricao_categoria) {
-		this.descricao_categoria = descricao_categoria;
-	}
 	
-	
+
 	
 	
 }

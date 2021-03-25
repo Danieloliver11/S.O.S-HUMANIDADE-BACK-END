@@ -24,14 +24,14 @@ public class Produto {
 	private long id;
 	
 	@NotNull
-	@Size(min =3, max =30)
+	@Size(max =30)
 	public String nome;
 	
 	@NotNull
 	private double preco;
 	
 	@NotNull
-	@Size(min = 5, max= 100)
+	@Size(max= 100)
 	private String descricao;
 	
 	@NotNull
@@ -39,85 +39,103 @@ public class Produto {
 	private String imagens;
 	
 	@NotNull
-	private int qt_produto;
+	private int qtProduto;
 	
 	@NotNull
-	private boolean produto_ativo ;
+	private boolean produtoAtivo ;
 	
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto") // se der erro foi aqui
 	private Categoria categoria;
 
-	
-	
-	
-	
-	
-	
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
 
 	public long getId() {
 		return id;
 	}
 
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 
 	public String getNome() {
 		return nome;
 	}
 
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 
 	public double getPreco() {
 		return preco;
 	}
 
+
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+
 
 	public String getDescricao() {
 		return descricao;
 	}
 
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
 
 	public String getImagens() {
 		return imagens;
 	}
 
+
 	public void setImagens(String imagens) {
 		this.imagens = imagens;
 	}
 
-	public int getQt_produto() {
-		return qt_produto;
+
+	public int getQtProduto() {
+		return qtProduto;
 	}
 
-	public void setQt_produto(int qt_produto) {
-		this.qt_produto = qt_produto;
+
+	public void setQtProduto(int qtProduto) {
+		this.qtProduto = qtProduto;
 	}
 
-	public boolean isProduto_ativo() {
-		return produto_ativo;
+
+	public boolean isProdutoAtivo() {
+		return produtoAtivo;
 	}
 
-	public void setProduto_ativo(boolean produto_ativo) {
-		this.produto_ativo = produto_ativo;
+
+	public void setProdutoAtivo(boolean produtoAtivo) {
+		this.produtoAtivo = produtoAtivo;
 	}
+
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
