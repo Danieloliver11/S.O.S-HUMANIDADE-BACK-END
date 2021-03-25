@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.URL;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -20,24 +22,22 @@ public class Categoria {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_categoria;
+	private long id;
 	
 	@NotNull
 	@Size(min = 5, max =50)
-	private String nome_categoria;
+	private String nome;
 	
-	@NotNull
-	@Size(min=10 , max = 300)
-	private String imgem_categoria;
+	@URL
+	private String imagem;
 	
 	@NotNull
 	@Size(min=5 , max= 200)
-	private String descricao_categoria;
+	private String descricao;
 	
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("categoria") // se der erro foi aqui
+	@JsonIgnoreProperties("categoria")
 	private List<Produto> produto;
-	
 	
 	public List<Produto> getProduto() {
 		return produto;
@@ -47,39 +47,36 @@ public class Categoria {
 		this.produto = produto;
 	}
 
-	public long getId_categoria() {
-		return id_categoria;
+	public long getId() {
+		return id;
 	}
 
-	public void setId_categoria(long id_categoria) {
-		this.id_categoria = id_categoria;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	public String getNome_categoria() {
-		return nome_categoria;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNome_categoria(String nome_categoria) {
-		this.nome_categoria = nome_categoria;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getImgem_categoria() {
-		return imgem_categoria;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setImgem_categoria(String imgem_categoria) {
-		this.imgem_categoria = imgem_categoria;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	public String getDescricao_categoria() {
-		return descricao_categoria;
+	public String getImagem() {
+		return imagem;
 	}
 
-	public void setDescricao_categoria(String descricao_categoria) {
-		this.descricao_categoria = descricao_categoria;
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
-	
-	
-	
 	
 }

@@ -11,47 +11,39 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.URL;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
 @Table(name= "tb_produto")
 public class Produto {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@NotNull
-	@Size(min =3, max =30)
+	@Size(max =30)
 	public String nome;
+	
+	@NotNull
+	@Size(max= 500)
+	private String descricao;
+	
+	@URL
+	private String imagem;
 	
 	@NotNull
 	private double preco;
 	
 	@NotNull
-	@Size(min = 5, max= 100)
-	private String descricao;
-	
-	@NotNull
-	@Size(min = 5, max= 300)
-	private String imagens;
-	
-	@NotNull
-	private int qt_produto;
-	
-	@NotNull
-	private boolean produto_ativo ;
-	
+	private boolean ativo ;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("produto") // se der erro foi aqui
+	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
-
-	
-	
-	
-	
-	
 	
 	public Categoria getCategoria() {
 		return categoria;
@@ -93,29 +85,20 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public String getImagens() {
-		return imagens;
+	public String getImagem() {
+		return imagem;
 	}
 
-	public void setImagens(String imagens) {
-		this.imagens = imagens;
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
-	public int getQt_produto() {
-		return qt_produto;
+	public boolean isAtivo() {
+		return ativo;
 	}
 
-	public void setQt_produto(int qt_produto) {
-		this.qt_produto = qt_produto;
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
-	public boolean isProduto_ativo() {
-		return produto_ativo;
-	}
-
-	public void setProduto_ativo(boolean produto_ativo) {
-		this.produto_ativo = produto_ativo;
-	}
-	
-	
 }
