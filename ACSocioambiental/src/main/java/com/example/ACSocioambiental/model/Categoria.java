@@ -24,15 +24,15 @@ public class Categoria {
 	
 	@NotNull
 	@Size(min = 5, max =50)
-	private String nome_categoria;
+	private String titulo;
 	
-	@NotNull
+	//@NotNull
 	@Size(min=10 , max = 300)
-	private String imgem_categoria;
+	private String imagem;
 	
-	@NotNull
+	//@NotNull
 	@Size(min=5 , max= 200)
-	private String descricao_categoria;
+	private String descricao;
 	
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("categoria") // se der erro foi aqui
@@ -55,31 +55,29 @@ public class Categoria {
 		this.id_categoria = id_categoria;
 	}
 
-	public String getNome_categoria() {
-		return nome_categoria;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNome_categoria(String nome_categoria) {
-		this.nome_categoria = nome_categoria;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
-	public String getImgem_categoria() {
-		return imgem_categoria;
+	public String getImagem() {
+		return imagem;
 	}
 
-	public void setImgem_categoria(String imgem_categoria) {
-		this.imgem_categoria = imgem_categoria;
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
-	public String getDescricao_categoria() {
-		return descricao_categoria;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDescricao_categoria(String descricao_categoria) {
-		this.descricao_categoria = descricao_categoria;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
-	
-	
-	
+
 	
 }
