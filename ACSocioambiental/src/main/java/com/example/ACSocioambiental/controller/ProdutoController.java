@@ -46,6 +46,26 @@ public class ProdutoController {
 		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	
+	/* TRAS TODOS OS VALORES <= (menores ou igual) CADASTRADOS DENTRO DE SUA TABELA */
+	@GetMapping("/precoMenor/{preco}")
+	public ResponseEntity<List<Produto>> findByPrecoMenorProduto(@PathVariable int preco){
+		
+		return ResponseEntity.ok(repository.findAllByPrecoLessThanEqual(preco));
+	}
+	
+	/* TRAS TODOS OS VALORES >= (maiores ou igual) CADASTRADOS DENTRO DE SUA TABELA */
+	@GetMapping("/precoMaior/{preco}")
+	public ResponseEntity<List<Produto>> findByPrecoMaiorProduto(@PathVariable int preco){
+		
+		return ResponseEntity.ok(repository.findAllByPrecoGreaterThanEqual(preco));
+	}
+	
+	@GetMapping("/ativo/{ativo}")
+	public ResponseEntity<List<Produto>> findAllByAtivo(@PathVariable boolean ativo){
+		
+		return ResponseEntity.ok(repository.findAllByAtivo(ativo));
+	}
+	
 	@PostMapping
 	public ResponseEntity<Produto> postProduto(@RequestBody Produto produto){
 		

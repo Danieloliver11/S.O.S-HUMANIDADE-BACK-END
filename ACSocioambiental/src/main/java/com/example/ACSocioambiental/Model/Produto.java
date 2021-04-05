@@ -39,7 +39,7 @@ public class Produto {
 	private double preco;
 	
 	@NotNull
-	private boolean ativo ;
+	private boolean ativo;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
