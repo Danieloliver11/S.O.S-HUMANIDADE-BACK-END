@@ -1,4 +1,4 @@
-package com.example.ACSocioambiental.repository;
+package com.example.ACSocioambiental.Repository;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.example.ACSocioambiental.Model.Categoria;
 
 @Repository
-public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
-	public List<Categoria> findAllByNomeContainingIgnoreCase(String nome);
-
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
+	public List<Categoria> findAllBynomeCategoriaContainingIgnoreCase(String nome_categoria);
+	
 }

@@ -1,4 +1,4 @@
-package com.example.ACSocioambiental.controller;
+package com.example.ACSocioambiental.Controller;
 
 import java.util.List;
 
@@ -16,72 +16,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ACSocioambiental.Model.Produto;
-import com.example.ACSocioambiental.repository.ProdutoRepository;
+import com.example.ACSocioambiental.Repository.ProdutoRepository;
 
 @RestController
-@RequestMapping("/produtos")
-@CrossOrigin(origins = "*")
+@CrossOrigin("*")
+@RequestMapping("/produto")
 public class ProdutoController {
 	
 	@Autowired
-	private ProdutoRepository repository;
+	public ProdutoRepository repository;
 	
 	@GetMapping
-	public ResponseEntity<List<Produto>> findAllProduto(){
-		
+	public ResponseEntity<List<Produto>> GetAll(){
 		return ResponseEntity.ok(repository.findAll());
-	}
+		}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Produto> findByIdProduto(@PathVariable long id){
-		
-		return repository.findById(id)
-				.map(resp -> ResponseEntity.ok(resp))
-				.orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<Produto> GetById(@PathVariable long id){
+	return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
+			.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Produto>> findByNomeProduto(@PathVariable String nome){
-		
-		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
-	}
-	
-	/* TRAS TODOS OS VALORES <= (menores ou igual) CADASTRADOS DENTRO DE SUA TABELA */
-	@GetMapping("/precoMenor/{preco}")
-	public ResponseEntity<List<Produto>> findByPrecoMenorProduto(@PathVariable int preco){
-		
-		return ResponseEntity.ok(repository.findAllByPrecoLessThanEqual(preco));
-	}
-	
-	/* TRAS TODOS OS VALORES >= (maiores ou igual) CADASTRADOS DENTRO DE SUA TABELA */
-	@GetMapping("/precoMaior/{preco}")
-	public ResponseEntity<List<Produto>> findByPrecoMaiorProduto(@PathVariable int preco){
-		
-		return ResponseEntity.ok(repository.findAllByPrecoGreaterThanEqual(preco));
-	}
-	
-	@GetMapping("/ativo/{ativo}")
-	public ResponseEntity<List<Produto>> findAllByAtivo(@PathVariable boolean ativo){
-		
-		return ResponseEntity.ok(repository.findAllByAtivo(ativo));
+	@GetMapping("/nomeCategoria{nomeCategoria}")
+	public ResponseEntity<List<Produto>> getbynomeCategoria(@PathVariable String nome){
+		return ResponseEntity.ok(repository.findAllBynomeContainingIgnoreCase(nome));
 	}
 	
 	@PostMapping
-	public ResponseEntity<Produto> postProduto(@RequestBody Produto produto){
-		
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
+	public ResponseEntity<Produto> post(@RequestBody Produto produto){
+		return ResponseEntity.status(HttpStatus.CREATED)
+				.body(repository.save(produto));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Produto> putProduto(@RequestBody Produto produto){
-		
+	public ResponseEntity<Produto> put (@RequestBody Produto produto){
 		return ResponseEntity.ok(repository.save(produto));
 	}
 	
-	@DeleteMapping("/{id}")
-	public void deleteProduto(@PathVariable long id) {
-		
+	@DeleteMapping
+	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
 	}
-
+	
 }
