@@ -17,7 +17,6 @@ public class Usuario {
 	private long id;
 	
 	@NotNull
-<<<<<<< HEAD
 	@Size(min = 5, max= 50)
 	private String nome;
 	
@@ -26,18 +25,7 @@ public class Usuario {
 	private String email;
 	
 	@NotNull
-	@Size(min = 10, max= 20)
-=======
 	@Size(min=1, max=200)
-	private String nome;
-	
-	@NotNull
-	@Size(min=1, max=200)
-	private String email;
-	
-	@NotNull
-	@Size(min=1, max=200)
->>>>>>> a7c67b4cd55f2304a80fa5d946eee09519f07690
 	private String senha ;
 	
 	public long getId() {

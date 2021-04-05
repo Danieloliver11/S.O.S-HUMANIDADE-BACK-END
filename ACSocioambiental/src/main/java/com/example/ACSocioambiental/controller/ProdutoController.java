@@ -1,4 +1,4 @@
-package com.example.ACSocioambiental.Controller;
+package com.example.ACSocioambiental.controller;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ACSocioambiental.Model.Produto;
-import com.example.ACSocioambiental.Repository.ProdutoRepository;
+import com.example.ACSocioambiental.repository.ProdutoRepository;
 
 @RestController
 @CrossOrigin("*")

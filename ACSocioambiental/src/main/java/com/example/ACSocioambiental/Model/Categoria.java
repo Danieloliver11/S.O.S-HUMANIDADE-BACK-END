@@ -25,7 +25,6 @@ public class Categoria {
 	private long id;
 	
 	@NotNull
-<<<<<<< HEAD
 	@Size(max =50)
 	private String nomeCategoria;
 	
@@ -42,31 +41,12 @@ public class Categoria {
 
 	public long getId() {
 		return id;
-=======
-	@Size(min = 5, max =50)
-	private String nome;
-	
-	@URL
-	private String imagem;
-	
-	@NotNull
-	@Size(min=5 , max= 200)
-	private String descricao;
-	
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("categoria")
-	private List<Produto> produto;
-	
-	public List<Produto> getProduto() {
-		return produto;
->>>>>>> a7c67b4cd55f2304a80fa5d946eee09519f07690
 	}
 
 	public void setId(long id) {
 		this.id = id;
 	}
 
-<<<<<<< HEAD
 	public String getNomeCategoria() {
 		return nomeCategoria;
 	}
@@ -97,45 +77,13 @@ public class Categoria {
 
 	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
-=======
-	public long getId() {
-		return id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public String getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
->>>>>>> a7c67b4cd55f2304a80fa5d946eee09519f07690
-	}
 
 	
-<<<<<<< HEAD
 
 	
 	
-=======
->>>>>>> a7c67b4cd55f2304a80fa5d946eee09519f07690
+	
+
 }

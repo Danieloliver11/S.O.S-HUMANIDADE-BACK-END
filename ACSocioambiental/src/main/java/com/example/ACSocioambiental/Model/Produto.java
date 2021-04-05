@@ -29,7 +29,6 @@ public class Produto {
 	public String nome;
 	
 	@NotNull
-<<<<<<< HEAD
 	private double preco;
 	
 	@NotNull
@@ -46,35 +45,19 @@ public class Produto {
 	@NotNull
 	private boolean produtoAtivo ;
 	
-=======
-	@Size(max= 500)
-	private String descricao;
-	
 	@URL
 	private String imagem;
 	
-	@NotNull
-	private double preco;
+	
 	
 	@NotNull
 	private boolean ativo;
->>>>>>> a7c67b4cd55f2304a80fa5d946eee09519f07690
+
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
-<<<<<<< HEAD
 
-=======
-	
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
->>>>>>> a7c67b4cd55f2304a80fa5d946eee09519f07690
 
 	public long getId() {
 		return id;
@@ -115,7 +98,6 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-<<<<<<< HEAD
 
 	public String getImagens() {
 		return imagens;
@@ -147,6 +129,26 @@ public class Produto {
 	}
 
 
+	public String getImagem() {
+		return imagem;
+	}
+
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
+
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+
+
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -157,30 +159,6 @@ public class Produto {
 	}
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-=======
-	public String getImagem() {
-		return imagem;
-	}
 
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
-	}
 
-	public boolean isAtivo() {
-		return ativo;
-	}
-
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
-
->>>>>>> a7c67b4cd55f2304a80fa5d946eee09519f07690
 }

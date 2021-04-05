@@ -1,4 +1,4 @@
-package com.example.ACSocioambiental.Repository;
+package com.example.ACSocioambiental.repository;
 
 import java.util.List;
 
