@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!-- temos que colocar o link  thymeleaf para poder usar  "th: each "-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materializecss/materialize.min.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+
+<body>
+    <h1>Lista de eventos</h1>
+
+    <!-- linke para  mandar pagina de cadastro-->
+
+    <!-- <h3><a href="/cadastroEvento">cadastro evento</a></h3>-->
+	<a href="/cadastroEvento" class="waves-effect waves-light btn-small">Botão</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Local</th>
+                <th>Data</th>
+                <th>Horario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--dentro dessa div tera um "th:each " para cada evento ele vai pegar do objeto que sera mandando para vew evento-->
+            <tr th:each="evento : ${eventos}">
+
+                <!--para acessar os objetos precisamos usar o span
+            o thymeleaf do tipo texto.
+            vai pegar "nome,local ,data , horario"-->
+                <td><span th:text="${evento.nome}"></span></td>
+                <td><span th:text="${evento.local}"></span></td>
+                <td><span th:text="${evento.data}"></span></td>
+                <td><span th:text="${evento.horario}"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <!--A tag <TR> representa uma linha e a tag <TD> representa uma célula. Desta forma, a criação de colunas 
+	em uma tabela HTML é feita automaticamente através da quantidade de células incluídas dentro de uma linha.
+	Caso queira incluir uma ou mais células que representem títulos, ganhando um destaque em relação às demais células, pode utilizar a tag <th>.
+	Podemos ainda aplicar o <TH> para títulos verticais, ou seja, na primeira coluna.
+	<THEAD></THEAD> – Esta tag representa o cabeçalho da tabela, geralmente composta por células título;
+	<TBODY></TBODY> – Essa tag representa o corpo da tabela;
+	<TFOOT></TFOOT> – Essa tag representa o rodapé da tabela.-->
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    
+</body>
+
+</html>
+
+<!--Atributo de iteração "th:each"
+Thymeleaf vem com atributo especial, usado para iterar sobre coleções de diferentes tipos de objetos. th:each
+
+Existem vários objetos que Thymeleaf considerou como iteráveis:
+
+objetos implementando interface,java.util.Iterable
+objetos implementando interface,java.util.Enumeration
+objetos implementando iterface,java.util.Iterator
+objetos implementando interface,java.util.Map
+e também.arrays
+Vamos supor que queremos exibir uma lista de clientes em uma simples tabela HTML usando o motor Thymeleaf.-->

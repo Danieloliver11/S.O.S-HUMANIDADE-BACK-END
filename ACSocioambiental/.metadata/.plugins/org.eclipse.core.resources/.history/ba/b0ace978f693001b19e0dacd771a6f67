@@ -1,0 +1,54 @@
+package com.Darkinho11.eventoapp.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.Darkinho11.eventoapp.Model.Evento;
+import com.Darkinho11.eventoapp.Repository.EventoRepository;
+
+
+@Controller
+@RequestMapping("/evento")
+public class EventoController {
+	
+	@Autowired
+	private EventoRepository repository;
+	
+	
+	@GetMapping("/cadastroEvento")
+	public String formget(){
+		return "evento/formEvento";
+	}
+	
+	@PostMapping("/cadastroEvento")
+	public String formPost(Evento evento) {
+		repository.save(evento);
+		return "redirect:/cadastroEvento";
+		// "redirect" para a pagina não dar erro, mesmo funcionando
+	}
+	
+	
+	
+	
+	
+	
+	/*
+	@RequestMapping(value="/cadastroEvento",method=RequestMethod.GET)
+	public String formget(){
+		return "evento/formEvento";
+	}
+	
+	
+	@RequestMapping(value ="/cadastroEvento",method=RequestMethod.POST)
+	public String formpost(Evento evento) {
+		repository.save(evento);
+		return "redirect:/cadastroEvento";
+		// "redirect" para a pagina não dar erro, mesmo funcionando
+	}*/
+	
+	
+	}

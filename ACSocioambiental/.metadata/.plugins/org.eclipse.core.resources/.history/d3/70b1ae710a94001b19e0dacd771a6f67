@@ -1,0 +1,67 @@
+package com.Darkinho11.eventoapp.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.Darkinho11.eventoapp.Model.Evento;
+import com.Darkinho11.eventoapp.Repository.EventoRepository;
+
+
+@Controller
+public class EventoController {
+	
+	@Autowired
+	private EventoRepository repository;
+	
+	
+	@GetMapping("/cadastroEvento")
+	public String formget(){
+		return "evento/formEvento";
+	}
+	
+	@PostMapping("/cadastroEvento")
+	public String formPost(Evento evento) {
+		repository.save(evento);
+		return "redirect:/cadastroEvento";
+		// "redirect" para a pagina não dar erro, mesmo funcionando
+	}
+	
+	/* metodo para retornar uma lista de eventos.
+	 vamos utilizar o MODELANDVIEW para receber a lista de eventos.
+	 */
+	@RequestMapping("/eventos")
+	public ModelAndView listaEventos() {
+		ModelAndView mv = new ModelAndView("index");// aqui temos que passar o nome da pagina que vai renderisar de acordo com os dados do evento
+		// precisamos fazer uma busca dos eventos no nossa banco de dados (Evento) então vamos criar uma lista de eventos "intereble"
+		Iterable<Evento> eventos = repository.findAll(); //vamos fazer uma busca pelo nosso repository com o "findall"
+		// agora vamos usar o ModelAndView "mv" para aparecer na pagina index na view. vamos usar o metodo "addobject" com 2 tributos. O o primeiro atributo tem que ser o nome que foi dado no index na view dentro das chaves {} e a lista de eventos com o nome "eventos".
+			mv.addAllObjects("eventos", eventos);
+		return mv;
+	}
+	
+	
+	
+	
+	
+	
+	/*
+	@RequestMapping(value="/cadastroEvento",method=RequestMethod.GET)
+	public String formget(){
+		return "evento/formEvento";
+	}
+	
+	
+	@RequestMapping(value ="/cadastroEvento",method=RequestMethod.POST)
+	public String formpost(Evento evento) {
+		repository.save(evento);
+		return "redirect:/cadastroEvento";
+		// "redirect" para a pagina não dar erro, mesmo funcionando
+	}*/
+	
+	
+	}

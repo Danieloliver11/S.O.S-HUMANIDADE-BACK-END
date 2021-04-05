@@ -1,0 +1,41 @@
+package com.Darkuino2000.Hyrule.Service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Darkuino2000.Hyrule.Model.Jogos;
+import com.Darkuino2000.Hyrule.Model.Marca;
+import com.Darkuino2000.Hyrule.Repository.JogosRepository;
+import com.Darkuino2000.Hyrule.Repository.MarcaRepository;
+
+@Service
+public class MarcaService {
+	
+	@Autowired
+	public MarcaRepository marcarepository;
+	
+	@Autowired
+	public JogosRepository jogorepositorinho;
+	
+	public Marca cadastroPordutoMarca ( long fk_marca , long fk_jogos) {
+		
+		Optional<Marca> marcaExistente = marcarepository.findById(fk_marca);
+		Optional<Jogos> jogosExistente = jogorepositorinho.findById(fk_jogos);
+		
+	if (marcaExistente.isPresent()&&jogosExistente.isPresent()) {
+		
+
+		marcaExistente.get().getJogos().add(jogosExistente.get());
+		marcarepository.save(marcaExistente.get());
+		return marcarepository.save(marcaExistente.get());
+	
+			}
+			
+		return null ;
+			
+		}
+	
+	
+} 

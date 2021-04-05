@@ -1,0 +1,38 @@
+package com.Darkuino2000.Hyrule.Model;
+
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity
+@Table(name="tb_acessorio")
+public class Acessorio {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	@NotNull
+	private String acessorios;
+	
+	@NotNull
+	private float preco;
+	
+	
+	private float desconto;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("acessorio")
+	private Marca marca;
+	
+	
+	
+	
+}

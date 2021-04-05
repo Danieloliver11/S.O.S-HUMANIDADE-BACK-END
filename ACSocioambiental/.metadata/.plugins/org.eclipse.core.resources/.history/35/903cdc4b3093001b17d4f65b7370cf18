@@ -1,0 +1,10 @@
+package com.Darkinho11.eventoapp.Controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class Tesste {
+	public String oi(){
+		return "ola mundo";
+	}
+	}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento</title>
+</head>
+
+<body>
+    <h1>Cadastro de eventos</h1>
+    <!-- o "method='post'" é importante para poder psotar as informações no banco de dados  -->
+    <form method="post">
+        Nome:<input type="text" name="nome" value="" id="nome" placeholder="Digite o nome"> Local:
+        <input type="text" name="local" value="" id="local" placeholder="Digite o nome do local"> Data:
+        <input type="date" name="data" value="" id="data"> Horario:
+        <input type="text" name="horario" value="" id="horario">
+        <button type="submit">Salvar</button>
+
+    </form>
+
+    <h3><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons right">content_paste</i>cadastro evento</a></h3>
+</body>
+
+</html>

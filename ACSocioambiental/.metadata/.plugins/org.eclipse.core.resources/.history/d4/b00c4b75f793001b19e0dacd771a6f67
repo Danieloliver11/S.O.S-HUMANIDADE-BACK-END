@@ -1,0 +1,21 @@
+<html>
+<head>
+	<style>
+	body{
+	color: #FF69B4;
+	padding: 200px;
+	margin: 200px}
+	</style>
+</head>
+<body>
+<h1>❤️ Data para cheirar o pescoço da jaki ❤️ </h1>
+<form method="post">
+
+</br>Data<input type ="date">
+
+</body>
+
+</html>
+
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">

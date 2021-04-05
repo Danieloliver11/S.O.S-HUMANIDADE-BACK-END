@@ -1,0 +1,73 @@
+package com.Darkuino2000.Hyrule.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Darkuino2000.Hyrule.Model.Categoria;
+import com.Darkuino2000.Hyrule.Model.Marca;
+import com.Darkuino2000.Hyrule.Repository.MarcaRepository;
+import com.Darkuino2000.Hyrule.Service.MarcaService;
+
+@RestController
+@RequestMapping("/marca")
+@CrossOrigin("*")
+public class MarcaController {
+	
+	@Autowired
+	private MarcaService service;
+	
+	@Autowired
+	private MarcaRepository repositoio;
+	
+	@GetMapping
+	public ResponseEntity <List<Marca>> GetAll(){
+		return ResponseEntity.ok(repositoio.findAll());
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity <Marca> GetById(@PathVariable long id){
+		return repositoio.findById(id)
+				.map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.notFound().build());
+	}
+	
+	@GetMapping("/marca/{marca}")
+	public ResponseEntity <List<Marca>> GetByestilo(@PathVariable String marca){
+		return ResponseEntity.ok(repositoio.findAllBymarcaContainingIgnoreCase(marca));
+	}
+	
+	@PostMapping
+	public ResponseEntity <Marca> post (@RequestBody Marca marca){
+		return ResponseEntity.status(HttpStatus.CREATED).body(repositoio.save(marca));
+	}
+	
+	@PutMapping
+	public ResponseEntity <Marca> put(@RequestBody Marca marca){
+		return ResponseEntity.status(HttpStatus.CREATED).body(repositoio.save(marca));
+	}
+	
+	@PutMapping("/marcaJogo/marca/{fk_marca}/jogo/{fk_jogos}")
+	public ResponseEntity <Marca> putmarcajogo(@PathVariable long fk_marca, @PathVariable long fk_jogos){
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.cadastroPordutoMarca.save(fk_marca,fk_jogos));
+	}
+	
+	
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable long id){
+		repositoio.deleteById(id);
+	}
+	
+
+}

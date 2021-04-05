@@ -1,0 +1,94 @@
+package com.Darkuino2000.Hyrule.Model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity
+@Table(name ="tb_jogo")
+public class Jogos {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long  id;
+	
+	@NotNull
+	@Size(min =2, max = 50)
+	private String nome;
+	
+	@NotNull
+	private float preco;
+	
+	private float desconto;
+	
+	// toda vez que fazemos um relacionamento bidirecional, tenho que saber qual vai ser o "dono dessa relação entre as entidades" faço isso com o  mappedBy
+	// sempre colocar o mappedBy do lado OPOSTO QUE a ligação @JoinTable. 
+	@ManyToMany(mappedBy = "jogos",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnoreProperties({"marca","categoria","jogos"})
+	private List<Marca> Marca = new ArrayList<>(); // foi aqui heee
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public float getPreco() {
+		return preco;
+	}
+
+	public void setPreco(float preco) {
+		this.preco = preco;
+	}
+
+	public float getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(float desconto) {
+		this.desconto = desconto;
+	}
+
+	public List<Marca> getMarca() {
+		return Marca;
+	}
+
+	public void setMarca(List<Marca> marca) {
+		Marca = marca;
+	}
+
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+
+	
+}

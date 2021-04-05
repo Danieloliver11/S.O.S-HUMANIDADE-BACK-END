@@ -1,0 +1,11 @@
+<html>
+
+<body>
+<h1>cadastro</h1>
+<form method="post">
+<input type ="text" value=""name="nome">
+</br>data<input type ="date">
+
+</body>
+
+</html>

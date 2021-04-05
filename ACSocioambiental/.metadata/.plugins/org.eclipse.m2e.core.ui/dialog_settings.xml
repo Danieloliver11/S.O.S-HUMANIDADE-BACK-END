@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\Daniel\Documents\geeeet\spring boot canal Michelli Brito\eventoapp"/>
+			<item value="C:\Users\Daniel\Documents\geeeet\spring boot canal Michelli Brito"/>
+			<item value="C:\Users\Daniel\Documents\GitHub\HyruleGame"/>
+			<item value="C:\Users\Daniel\Documents\GitHub\E-commerce-Spring-Boot\E-Comerce"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

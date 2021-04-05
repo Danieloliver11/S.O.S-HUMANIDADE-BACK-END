@@ -1,0 +1,55 @@
+<! DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<Cabeça>
+	<título>EventosApp</título>
+	<!--Import Google Icon Font->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="folha de estilo"/>
+      <!--Import materialize.css->
+      < tipo delink ="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="tela,projeção"/>
+
+      <!--He o site de know navegador é otimizado para celular->
+      <meta nome="viewport" conteúdo="largura=largura do dispositivo, escala inicial=1,0"/>
+      <link rel="stylesheet" href="estilo/styleCss.css"/>
+</Cabeça>
+<Corpo>
+
+	<Cabeçalho>
+		<nav classe="menu">
+		    <classe div ="nav-wrapper">
+		      < a href="#" class="brand-logo">Cadastro de Eventos:</a>
+		      <ul id="nav-mobile" class="direito hide-on-med-and-down">
+		        <li>< ahref ="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Eventos</a></li>
+		      </Ul>
+		    </Div>
+		</Nav>
+	
+	</Cabeçalho>
+	
+	
+	<th:block th:include="mensagemValidacao"></th:block>
+	<classe div ="formulário de contêinerEvento">
+	
+	<classe de formulário ="recipiente" método="post">
+ Nome: < tipode entrada ="texto" valor="" nome="nome"/>
+		<classe div ="linha">
+			<classe div ="campo de entrada col s6">
+ Local: < tipode entrada ="texto" valor="" nome="local"/>
+			</Div>
+			<classe div ="campo de entrada col s3">
+ Dados: < tipode entrada ="data" valor="" nome="dados"/>
+			</Div>
+			<classe div ="campo de entrada col s3">
+ Horario: < tipode entrada ="tempo" valor="" nome="horario"/>
+			</Div>
+		</Div>
+		< classe debotão ="ondas-efeito ondas-luz btn" tipo="enviar">Salvar</button>
+	
+	</Forma>
+	</Div>
+	< tipo descript ="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    < tipo descript ="texto/javascript" src="materialize/js/materialize.min.js"></script>
+</Corpo>
+
+
+</Html>

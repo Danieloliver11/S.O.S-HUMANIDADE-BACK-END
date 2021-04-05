@@ -1,0 +1,105 @@
+package com.Darkuino2000.Hyrule.Model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity
+@Table(name = "tb_marca")
+public class Marca {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	@NotNull
+	private String marca;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("marca")
+	Categoria categoria;
+	
+   @OneToMany(mappedBy = "marca", cascade = CascadeType.ALL)
+   @JsonIgnoreProperties("marca")
+   public List<Acessorio> acessorio;
+    
+ // @JoinTable TABELA DE JUNÇA  com o nome "marcaJogo";
+ 	//fk_marca é  a chave primaria da Marca
+ 	//fk_jogos é  a chave primaria da jogos
+			@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+			@JoinTable(
+			name ="marcaJogo",       											
+			joinColumns = { @JoinColumn(name ="fk_marca")},
+			inverseJoinColumns = {@JoinColumn(name = "fk_jogos")})  
+			@JsonIgnoreProperties({"nome","preco","desconto"})
+			private List<Jogos> jogos = new ArrayList<>();
+
+			
+			
+			
+			
+			
+			public long getId() {
+				return id;
+			}
+
+			public void setId(long id) {
+				this.id = id;
+			}
+
+			public String getMarca() {
+				return marca;
+			}
+
+			public void setMarca(String marca) {
+				this.marca = marca;
+			}
+
+			public Categoria getCategoria() {
+				return categoria;
+			}
+
+			public void setCategoria(Categoria categoria) {
+				this.categoria = categoria;
+			}
+
+			public List<Acessorio> getAcessorio() {
+				return acessorio;
+			}
+
+			public void setAcessorio(List<Acessorio> acessorio) {
+				this.acessorio = acessorio;
+			}
+
+			public List<Jogos> getJogos() {
+				return jogos;
+			}
+
+			public void setJogos(List<Jogos> jogos) {
+				this.jogos = jogos;
+			}
+
+	
+		
+	
+	
+	
+	
+
+	
+	
+}

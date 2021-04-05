@@ -1,0 +1,17 @@
+<html>
+<head>
+	<style>
+	body{
+	padding: 50%;
+	margin: 50%}
+	</style>
+</head>
+<body>
+<h1>Data para cheirar o pescoço da jaki </h1>
+<form method="post">
+
+</br>data<input type ="date">
+
+</body>
+
+</html>
