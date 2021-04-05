@@ -21,3 +21,5 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long>{
 	public List<Produto> findAllByAtivo(@Param("ativo") boolean ativo);
 	
 }
+
+//******************************
