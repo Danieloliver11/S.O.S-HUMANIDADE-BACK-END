@@ -19,13 +19,13 @@ public class Usuario {
 	private String nome;
 	
 	@NotNull
+	private String usuario;
+	
+	@NotNull
 	private String email;
 	
 	@NotNull
 	private String senha ;
-	
-	
-	
 
 	public long getId() {
 		return id;
@@ -43,12 +43,13 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
+	
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getSenha() {
@@ -58,6 +59,13 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 }
