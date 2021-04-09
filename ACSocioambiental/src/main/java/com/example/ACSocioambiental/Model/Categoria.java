@@ -25,27 +25,19 @@ public class Categoria {
 	private long id;
 	
 	@NotNull
-	@Size(min = 5, max =50)
+	@Size(max =50)
 	private String nome;
 	
 	@URL
 	private String imagem;
 	
 	@NotNull
-	@Size(min=5 , max= 200)
+	@Size(max= 200)
 	private String descricao;
 	
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produto;
-	
-	public List<Produto> getProduto() {
-		return produto;
-	}
-
-	public void setProduto(List<Produto> produto) {
-		this.produto = produto;
-	}
 
 	public long getId() {
 		return id;
@@ -63,6 +55,14 @@ public class Categoria {
 		this.nome = nome;
 	}
 
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
@@ -71,12 +71,14 @@ public class Categoria {
 		this.descricao = descricao;
 	}
 
-	public String getImagem() {
-		return imagem;
+	public List<Produto> getProduto() {
+		return produto;
 	}
 
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
 	}
+	
+	
 	
 }
