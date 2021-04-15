@@ -26,7 +26,7 @@ public class Produto {
 	
 	@NotNull
 	@Size(max =30)
-	public String nome;
+	private String nome;
 	
 	@NotNull
 	@Size(max= 500)
@@ -44,14 +44,6 @@ public class Produto {
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
-	
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
 
 	public long getId() {
 		return id;
@@ -67,14 +59,6 @@ public class Produto {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public double getPreco() {
-		return preco;
-	}
-
-	public void setPreco(double preco) {
-		this.preco = preco;
 	}
 
 	public String getDescricao() {
@@ -93,6 +77,14 @@ public class Produto {
 		this.imagem = imagem;
 	}
 
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+
 	public boolean isAtivo() {
 		return ativo;
 	}
@@ -101,6 +93,17 @@ public class Produto {
 		this.ativo = ativo;
 	}
 
-}
+	public Categoria getCategoria() {
+		return categoria;
+	}
 
-//******************************
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+
+	
+	
+
+
+}

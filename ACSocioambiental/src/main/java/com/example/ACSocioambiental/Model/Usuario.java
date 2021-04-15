@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -17,16 +18,20 @@ public class Usuario {
 	private long id;
 	
 	@NotNull
-	@Size(min=1, max=200)
+	@Size(min=5, max=50)
 	private String nome;
 	
 	@NotNull
-	@Size(min=1, max=200)
+	@Email
 	private String email;
 	
 	@NotNull
-	@Size(min=1, max=200)
+	@Size(max=100)
 	private String senha ;
+	
+	@NotNull
+	@Size(min = 5, max = 100)
+	private String usuario;
 	
 	public long getId() {
 		return id;
@@ -59,7 +64,14 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 	
 }
 
