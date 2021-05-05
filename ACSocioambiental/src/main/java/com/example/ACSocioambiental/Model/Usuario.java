@@ -33,6 +33,29 @@ public class Usuario {
 	@Size(min = 5, max = 100)
 	private String usuario;
 	
+	private String foto;
+	
+	private String tipo;
+	
+	
+	
+	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 	public long getId() {
 		return id;
 	}
