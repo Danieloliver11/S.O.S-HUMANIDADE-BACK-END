@@ -34,8 +34,8 @@ public class Categoria {
 	@NotNull
 	@Size(max= 200)
 	private String descricao;
-	
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+															//REMOVE. se a Categoria for apagada ira levar todo
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produto;
 
